@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutri_app/app/menu/models/food.dart';
 import 'package:nutri_app/app/menu/ui/components/meal_card.dart';
 import 'package:nutri_app/app/menu/ui/components/meal_item.dart';
 
@@ -16,45 +17,36 @@ class _MenuPageState extends State<MenuPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          children: const [
+          children: [
             MealCard(
               mealName: 'Refeição 1',
               items: [
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
+                MealItem(
+                  food: Food(
+                      name: 'Ovo',
+                      quantity: '2 unidade(s) média(s)',
+                      substituitions: [
+                        Food(name: 'frango', quantity: '500g'),
+                        Food(name: 'frango', quantity: '500g'),
+                        Food(name: 'frango', quantity: '500g'),
+                      ]),
+                ),
+                MealItem(
+                    food: Food(name: 'Ovo', quantity: '2 unidade(s) média(s)')),
+                MealItem(
+                    food: Food(name: 'Ovo', quantity: '2 unidade(s) média(s)'))
               ],
             ),
             MealCard(
               mealName: 'Refeição 1',
               items: [
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-              ],
-            ),
-            MealCard(
-              mealName: 'Refeição 1',
-              items: [
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-              ],
-            ),
-            MealCard(
-              mealName: 'Refeição 1',
-              items: [
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-              ],
-            ),
-            MealCard(
-              mealName: 'Refeição 1',
-              items: [
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
-                MealItem(title: 'Ovo', quantity: '2 unidade(s) média(s)'),
+                MealItem(
+                  food: Food(name: 'Ovo', quantity: '2 unidade(s) média(s)'),
+                ),
+                MealItem(
+                    food: Food(name: 'Ovo', quantity: '2 unidade(s) média(s)')),
+                MealItem(
+                    food: Food(name: 'Ovo', quantity: '2 unidade(s) média(s)'))
               ],
             ),
           ],
