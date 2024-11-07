@@ -10,6 +10,9 @@ class MealCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Container(
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.only(bottom: 16),
@@ -26,12 +29,9 @@ class MealCard extends StatelessWidget {
           ]),
       child: Column(
         children: [
-          const Text(
-            'Refeicao X',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+          Text(
+            mealName,
+            style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
           const Divider(),
           Column(
@@ -41,11 +41,13 @@ class MealCard extends StatelessWidget {
           Center(
             child: ElevatedButton(
               onPressed: () {},
-              child: const Text(
-                'Registrar',
-                style: TextStyle(
-                  fontSize: 16,
-                ),
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(colorScheme.primary),
+              ),
+              child: Text(
+                '+ Registrar',
+                style: textTheme.labelLarge
+                    ?.copyWith(color: colorScheme.onPrimary),
               ),
             ),
           ),
