@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:nutri_app/app/menu/ui/components/substitutions_dialog.dart';
+
+import '../../models/food.dart';
 
 class MealItem extends StatelessWidget {
-  final String title;
-  final String quantity;
+  final Food food;
 
-  const MealItem({super.key, required this.title, required this.quantity});
+  const MealItem({super.key, required this.food});
+
+  void _showPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SubstitutionsDialog(food: food);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +26,16 @@ class MealItem extends StatelessWidget {
       children: [
         ListTile(
           title: Text(
-            title,
+            food.name,
             style: textTheme.titleMedium,
           ),
           subtitle: Text(
-            quantity,
+            food.quantity,
             style: textTheme.labelLarge
                 ?.copyWith(color: colorScheme.onSurfaceVariant),
           ),
           trailing: OutlinedButton(
-            onPressed: () {},
+            onPressed: () => _showPopup(context),
             style: OutlinedButton.styleFrom(
                 side: BorderSide(color: colorScheme.primary),
                 shape: RoundedRectangleBorder(
