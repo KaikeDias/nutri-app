@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutri_app/config/extension.dart';
 
 import 'meal_item.dart';
 
@@ -10,9 +11,6 @@ class MealCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-
     return Container(
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.only(bottom: 16),
@@ -31,7 +29,7 @@ class MealCard extends StatelessWidget {
         children: [
           Text(
             mealName,
-            style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            style: context.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
           const Divider(),
           Column(
@@ -42,12 +40,12 @@ class MealCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(colorScheme.primary),
+                backgroundColor: WidgetStatePropertyAll(context.colorScheme.primary),
               ),
               child: Text(
                 '+ Registrar',
-                style: textTheme.labelLarge
-                    ?.copyWith(color: colorScheme.onPrimary),
+                style: context.textTheme.labelLarge
+                    ?.copyWith(color: context.colorScheme.onPrimary),
               ),
             ),
           ),

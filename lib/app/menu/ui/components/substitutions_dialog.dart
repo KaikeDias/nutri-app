@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nutri_app/app/menu/models/food.dart';
+import 'package:nutri_app/config/extension.dart';
 
 class SubstitutionsDialog extends StatefulWidget {
   final Food food;
@@ -14,15 +14,13 @@ class SubstitutionsDialog extends StatefulWidget {
 class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
     final List<Food> substitutions = widget.food.substituitions;
 
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      backgroundColor: Color(0xFFDEE4E4),
+      backgroundColor: const Color(0xFFDEE4E4),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -31,7 +29,7 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
           children: [
             Text(
               "Substituições",
-              style: textTheme.titleLarge?.copyWith(
+              style: context.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -50,12 +48,12 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
                   child: ListTile(
                     title: Text(
                       substitutions[index].name,
-                      style: textTheme.titleMedium?.copyWith(color: colorScheme.primary),
+                      style: context.textTheme.titleMedium?.copyWith(color: context.colorScheme.primary),
                     ),
                     subtitle: Text(
                       substitutions[index].quantity,
-                      style: textTheme.labelLarge
-                          ?.copyWith(color: colorScheme.onSurfaceVariant),
+                      style: context.textTheme.labelLarge
+                          ?.copyWith(color: context.colorScheme.onSurfaceVariant),
                     ),
                   ),
                 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutri_app/app/menu/ui/components/substitutions_dialog.dart';
+import 'package:nutri_app/config/extension.dart';
 
 import '../../models/food.dart';
 
@@ -19,32 +20,29 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-
     return Column(
       children: [
         ListTile(
           title: Text(
             food.name,
-            style: textTheme.titleMedium,
+            style: context.textTheme.titleMedium,
           ),
           subtitle: Text(
             food.quantity,
-            style: textTheme.labelLarge
-                ?.copyWith(color: colorScheme.onSurfaceVariant),
+            style: context.textTheme.labelLarge
+                ?.copyWith(color: context.colorScheme.onSurfaceVariant),
           ),
           trailing: OutlinedButton(
             onPressed: () => _showPopup(context),
             style: OutlinedButton.styleFrom(
-                side: BorderSide(color: colorScheme.primary),
+                side: BorderSide(color: context.colorScheme.primary),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 ),
                 padding: const EdgeInsets.all(10)),
             child: Text(
               'Substituições',
-              style: textTheme.labelLarge?.copyWith(color: colorScheme.primary),
+              style: context.textTheme.labelLarge?.copyWith(color: context.colorScheme.primary),
             ),
           ),
         ),
