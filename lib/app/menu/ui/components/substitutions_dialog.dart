@@ -22,6 +22,7 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
+      backgroundColor: Color(0xFFDEE4E4),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -41,19 +42,15 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
               itemCount: substitutions.length,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: const EdgeInsets.only(top: 2, bottom: 4),
+                  margin: const EdgeInsets.only(top: 2, bottom: 8),
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: colorScheme.onSurface,
-                      width: 1.0,
-                    ),
                     borderRadius: BorderRadius.circular(12),
-                    color: colorScheme.secondaryContainer,
+                    color: Colors.white
                   ),
                   child: ListTile(
                     title: Text(
                       substitutions[index].name,
-                      style: textTheme.titleMedium,
+                      style: textTheme.titleMedium?.copyWith(color: colorScheme.primary),
                     ),
                     subtitle: Text(
                       substitutions[index].quantity,
