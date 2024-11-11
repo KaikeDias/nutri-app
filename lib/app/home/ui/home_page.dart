@@ -30,14 +30,14 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 35),
             HomeOption(
-              title: "Impressos",
-              icon: Icons.attach_file,
+              title: "Orientações nutricionais",
+              icon: Icons.menu_book,
               route: '/',
             ),
             SizedBox(height: 35),
             HomeOption(
-              title: "Orientações nutricionais",
-              icon: Icons.menu_book,
+              title: "Impressos",
+              icon: Icons.attach_file,
               route: '/',
             ),
           ],
