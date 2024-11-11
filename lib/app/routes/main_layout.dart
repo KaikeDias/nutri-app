@@ -19,6 +19,8 @@ class _MainLayoutState extends State<MainLayout> {
 
   late final PageController pageController;
 
+  final List<String> _titles = ["Cardápio", "Menu", "Metas"];
+
   @override
   void initState() {
     super.initState();
@@ -51,9 +53,9 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Cardápio",
-          style: TextStyle(
+        title: Text(
+          _titles[_navigationIndex],
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
