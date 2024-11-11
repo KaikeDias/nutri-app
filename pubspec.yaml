@@ -14,6 +14,7 @@ dependencies:
   supabase_auth_ui: ^0.5.4
   font_awesome_flutter: ^10.8.0
   go_router: ^14.4.1
+  bloc: ^8.1.4
 
 dev_dependencies:
   flutter_test:
