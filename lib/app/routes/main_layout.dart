@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nutri_app/app/goals/ui/goals_page.dart';
+import 'package:nutri_app/app/home/ui/home_page.dart';
 
 import '../menu/ui/menu_page.dart';
 
@@ -71,11 +73,11 @@ class _MainLayoutState extends State<MainLayout> {
       body: PageView(
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          MenuPage(),
-        ],
+        children: const [MenuPage(), HomePage(), GoalsPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _navigationIndex,
+        onTap: (value) async => onBottomNavigationTap(value),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.local_dining),
