@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutri_app/app/home/ui/home_page.dart';
+import 'package:nutri_app/app/routes/router.dart';
 import 'package:nutri_app/config/theme.dart';
 
 void main() {
@@ -16,10 +16,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: MaterialTheme(ThemeData.light().textTheme).light(),
-      home: const HomePage(),
+      routerConfig: router,
     );
   }
 }
