@@ -28,7 +28,7 @@ class MealItem extends StatelessWidget {
             style: context.textTheme.titleMedium,
           ),
           subtitle: Text(
-            food.quantity,
+            '${food.quantity} ${food.unit}',
             style: context.textTheme.labelLarge
                 ?.copyWith(color: context.colorScheme.onSurfaceVariant),
           ),

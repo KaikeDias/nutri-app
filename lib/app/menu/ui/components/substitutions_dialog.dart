@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nutri_app/app/menu/cubits/substitutions_cubit.dart';
+import 'package:nutri_app/app/menu/cubits/substitutions_states.dart';
 import 'package:nutri_app/app/menu/models/food.dart';
 import 'package:nutri_app/config/extension.dart';
 
@@ -12,10 +15,17 @@ class SubstitutionsDialog extends StatefulWidget {
 }
 
 class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
+  late final SubstitutionsCubit cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    cubit = BlocProvider.of<SubstitutionsCubit>(context);
+    cubit.fetchSubstitutions(widget.food.id);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Food> substitutions = widget.food.substituitions;
-
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -35,28 +45,25 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
             ),
             const SizedBox(height: 8),
             const Divider(),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: substitutions.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.only(top: 2, bottom: 8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      substitutions[index].name,
-                      style: context.textTheme.titleMedium?.copyWith(color: context.colorScheme.primary),
+            BlocBuilder(
+              bloc: cubit,
+              builder: (context, state) {
+                if (state is LoadingSubstitutionsState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is LoadedSubstitutionsState) {
+                  return _buildSubstitutionsList(state.aliments);
+                } else if (state is ErrorSubstitutionsState) {
+                  return Center(
+                    child: Text(
+                      state.message,
+                      style: const TextStyle(color: Colors.red),
                     ),
-                    subtitle: Text(
-                      substitutions[index].quantity,
-                      style: context.textTheme.labelLarge
-                          ?.copyWith(color: context.colorScheme.onSurfaceVariant),
-                    ),
-                  ),
-                );
+                  );
+                } else {
+                  return const Text("Erro desconhecido");
+                }
               },
             ),
             Align(
@@ -71,6 +78,32 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildSubstitutionsList(List<Food> substitutions) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: substitutions.length,
+      itemBuilder: (context, index) {
+        return Container(
+          margin: const EdgeInsets.only(top: 2, bottom: 8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12), color: Colors.white),
+          child: ListTile(
+            title: Text(
+              substitutions[index].name,
+              style: context.textTheme.titleMedium
+                  ?.copyWith(color: context.colorScheme.primary),
+            ),
+            subtitle: Text(
+              '${substitutions[index].quantity} ${substitutions[index].unit}',
+              style: context.textTheme.labelLarge
+                  ?.copyWith(color: context.colorScheme.onSurfaceVariant),
+            ),
+          ),
+        );
+      },
     );
   }
 }
