@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:nutri_app/app/home/ui/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nutri_app/app/auth/cubit/auth_cubit.dart';
+import 'package:nutri_app/app/guidelines/cubit/guideline_cubit.dart';
+import 'package:nutri_app/app/menu/cubits/menu_cubit.dart';
+import 'package:nutri_app/app/menu/cubits/substitutions_cubit.dart';
+import 'package:nutri_app/app/personalInfo/cubit/personal_info_cubit.dart';
+import 'package:nutri_app/app/routes/router.dart';
 import 'package:nutri_app/config/theme.dart';
 
 void main() {
@@ -16,10 +22,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: MaterialTheme(ThemeData.light().textTheme).light(),
-      home: const HomePage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AuthCubit()),
+        BlocProvider(create: (context) => MenuCubit()),
+        BlocProvider(create: (context) => SubstitutionsCubit()),
+        BlocProvider(create: (context) => GuidelineCubit()),
+        BlocProvider(create: (context) => PersonalInfoCubit()),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: MaterialTheme(ThemeData.light().textTheme).light(),
+        routerConfig: router,
+      ),
     );
   }
 }
