@@ -5,7 +5,6 @@ import 'package:nutri_app/app/auth/models/patient.dart';
 import 'package:nutri_app/app/personalInfo/cubit/personal_info_cubit.dart';
 import 'package:nutri_app/app/personalInfo/cubit/personal_info_state.dart';
 import 'package:nutri_app/app/personalInfo/ui/components/info_item.dart';
-import 'package:nutri_app/config/extension.dart';
 
 class PersonalInfoPage extends StatefulWidget {
   const PersonalInfoPage({super.key});

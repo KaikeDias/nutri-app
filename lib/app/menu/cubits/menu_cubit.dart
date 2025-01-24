@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nutri_app/app/menu/cubits/menu_states.dart';
 import 'package:nutri_app/app/menu/models/meal.dart';
-import 'package:nutri_app/app/auth/models/patient.dart';
 import 'package:nutri_app/config/api_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
