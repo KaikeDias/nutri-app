@@ -18,9 +18,9 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             HomeOption(
-              title: "Chat com o profissional",
-              icon: Icons.chat_bubble_outline,
-              route: '/',
+              title: "Informações Pessoais",
+              icon: Icons.person,
+              route: '/personalInfo',
             ),
             SizedBox(height: 35),
             HomeOption(
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             HomeOption(
               title: "Orientações nutricionais",
               icon: Icons.menu_book,
-              route: '/',
+              route: '/guidelines',
             ),
             SizedBox(height: 35),
             HomeOption(
