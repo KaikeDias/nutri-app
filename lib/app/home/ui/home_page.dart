@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             HomeOption(
               title: "Impressos",
               icon: Icons.attach_file,
-              route: '/',
+              route: '/documents',
             ),
           ],
         ),
