@@ -5,9 +5,18 @@ import 'meal_item.dart';
 
 class MealCard extends StatelessWidget {
   final String mealName;
+  final String mealTime;
   final List<MealItem> items;
 
-  const MealCard({super.key, required this.mealName, required this.items});
+  const MealCard(
+      {super.key,
+      required this.mealName,
+      required this.items,
+      required this.mealTime});
+
+  String convertMealTime(String mealTime) {
+    return mealTime.substring(0, 5);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,12 @@ class MealCard extends StatelessWidget {
         children: [
           Text(
             mealName,
-            style: context.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            style: context.textTheme.titleLarge
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          Text(
+            convertMealTime(mealTime),
+            style: context.textTheme.titleSmall?.copyWith(color: Colors.grey),
           ),
           const Divider(),
           Column(
@@ -40,7 +54,8 @@ class MealCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(context.colorScheme.primary),
+                backgroundColor:
+                    WidgetStatePropertyAll(context.colorScheme.primary),
               ),
               child: Text(
                 '+ Registrar',

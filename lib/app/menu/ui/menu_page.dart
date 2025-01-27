@@ -62,6 +62,7 @@ class _MenuPageState extends State<MenuPage> {
         final Meal meal = meals[index];
         return MealCard(
           mealName: meal.title,
+          mealTime: meal.mealTime,
           items: meal.aliments.map((food) {
             return MealItem(food: food);
           }).toList(),
