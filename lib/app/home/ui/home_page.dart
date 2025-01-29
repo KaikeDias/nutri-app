@@ -24,6 +24,12 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 35),
             HomeOption(
+              title: "Formulário de Anamnese",
+              icon: Icons.edit_document,
+              route: '/form',
+            ),
+            SizedBox(height: 35),
+            HomeOption(
               title: "Diário alimentar",
               icon: Icons.calendar_month,
               route: '/',

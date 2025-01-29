@@ -3,6 +3,7 @@ import 'package:nutri_app/app/auth/ui/login_page.dart';
 import 'package:nutri_app/app/auth/ui/splash_page.dart';
 import 'package:nutri_app/app/documents/ui/documents_page.dart';
 import 'package:nutri_app/app/documents/ui/pdf_viewer_page.dart';
+import 'package:nutri_app/app/form/ui/form_page.dart';
 import 'package:nutri_app/app/guidelines/ui/guidelines_page.dart';
 import 'package:nutri_app/app/menu/ui/menu_page.dart';
 import 'package:nutri_app/app/personalInfo/ui/personal_info_page.dart';
@@ -59,5 +60,9 @@ final router = GoRouter(initialLocation: '/splash', routes: [
   GoRoute(
     path: '/document/view',
     builder: (context, state) => const PDFViewerPage(),
+  ),
+  GoRoute(
+    path: '/form',
+    builder: (context, state) => const FormPage(),
   ),
 ]);
