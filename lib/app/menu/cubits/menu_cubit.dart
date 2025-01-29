@@ -35,7 +35,7 @@ class MenuCubit extends Cubit<MenuState> {
         '$baseUrl/menus/${rawJson['menuID']}/meals',
         options: Options(
           headers: {
-            'Authorization': 'Bearer $authToken', // Passando o token
+            'Authorization': 'Bearer $authToken', 
           },
         ),
       );
