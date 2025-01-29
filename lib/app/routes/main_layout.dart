@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nutri_app/app/auth/cubit/auth_cubit.dart';
+import 'package:nutri_app/app/goals/ui/water_goal_page.dart';
 import 'package:nutri_app/app/home/ui/home_page.dart';
 
 import '../menu/ui/menu_page.dart';
@@ -21,7 +23,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   late final PageController pageController;
 
-  final List<String> _titles = ["Cardápio", "Menu"];
+  final List<String> _titles = ["Cardápio", "Menu", "Metas"];
 
   @override
   void initState() {
@@ -81,6 +83,7 @@ class _MainLayoutState extends State<MainLayout> {
           children: [
             MenuPage(),
             HomePage(),
+            WaterGoalPage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -94,6 +97,10 @@ class _MainLayoutState extends State<MainLayout> {
             BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: "Menu",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.crosshairs),
+              label: "Metas",
             )
           ],
         ),
