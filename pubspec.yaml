@@ -21,6 +21,7 @@ dependencies:
   path_provider: ^2.1.5
   share_extend: ^2.0.0
   syncfusion_flutter_pdfviewer: ^28.1.41
+  percent_indicator: ^4.2.4
 
 dev_dependencies:
   flutter_test:
