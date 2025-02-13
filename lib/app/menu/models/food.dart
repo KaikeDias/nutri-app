@@ -3,6 +3,8 @@ class Food {
   final String name;
   final String quantity;
   final String unit;
+  final String homeQuantity;
+  final String homeUnit;
   final List<Food> substituitions;
 
   Food({
@@ -10,6 +12,8 @@ class Food {
     required this.name,
     required this.quantity,
     required this.unit,
+    required this.homeQuantity,
+    required this.homeUnit,
     this.substituitions = const [],
   });
 
@@ -19,6 +23,8 @@ class Food {
       name: json['name'],
       quantity: json['quantity'],
       unit: json['unit'],
+      homeQuantity: json['homeQuantity'],
+      homeUnit: json['homeUnit'],
     );
   }
 }

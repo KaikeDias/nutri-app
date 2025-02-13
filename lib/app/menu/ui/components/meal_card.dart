@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutri_app/app/menu/ui/components/register_meal.dart';
 import 'package:nutri_app/config/extension.dart';
 
 import 'meal_item.dart';
@@ -16,6 +17,15 @@ class MealCard extends StatelessWidget {
 
   String convertMealTime(String mealTime) {
     return mealTime.substring(0, 5);
+  }
+
+  void _showPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return RegisterMealDialog();
+      },
+    );
   }
 
   @override
@@ -52,7 +62,9 @@ class MealCard extends StatelessWidget {
           const SizedBox(height: 8),
           Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                _showPopup(context);
+              },
               style: ButtonStyle(
                 backgroundColor:
                     WidgetStatePropertyAll(context.colorScheme.primary),

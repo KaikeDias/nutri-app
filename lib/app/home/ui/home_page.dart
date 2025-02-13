@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             HomeOption(
               title: "Diário alimentar",
               icon: Icons.calendar_month,
-              route: '/',
+              route: '/dietEntry',
             ),
             SizedBox(height: 35),
             HomeOption(

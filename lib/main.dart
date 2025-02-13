@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nutri_app/app/auth/cubit/auth_cubit.dart';
+import 'package:nutri_app/app/dietEntry/cubit/diet_entry_cubit.dart';
+import 'package:nutri_app/app/dietEntry/cubit/entry_cubit.dart';
 import 'package:nutri_app/app/documents/cubit/document_cubit.dart';
 import 'package:nutri_app/app/documents/cubit/list_documents_cubit.dart';
 import 'package:nutri_app/app/form/cubit/form_cubit.dart';
@@ -37,6 +39,8 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => DocumentCubit()),
         BlocProvider(create: (context) => WaterGoalCubit()),
         BlocProvider(create: (context) => FormCubit()),
+        BlocProvider(create: (context) => DietEntryCubit()),
+        BlocProvider(create: (context) => EntryCubit()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

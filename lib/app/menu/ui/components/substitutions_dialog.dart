@@ -97,7 +97,7 @@ class _SubstitutionsDialogState extends State<SubstitutionsDialog> {
                   ?.copyWith(color: context.colorScheme.primary),
             ),
             subtitle: Text(
-              '${substitutions[index].quantity} ${substitutions[index].unit}',
+              '${substitutions[index].homeQuantity} ${substitutions[index].homeUnit} (${substitutions[index].quantity}${substitutions[index].unit})',
               style: context.textTheme.labelLarge
                   ?.copyWith(color: context.colorScheme.onSurfaceVariant),
             ),

@@ -28,7 +28,7 @@ class MealItem extends StatelessWidget {
             style: context.textTheme.titleMedium,
           ),
           subtitle: Text(
-            '${food.quantity} ${food.unit}',
+            '${food.homeQuantity} ${food.homeUnit} (${food.quantity}${food.unit})',
             style: context.textTheme.labelLarge
                 ?.copyWith(color: context.colorScheme.onSurfaceVariant),
           ),
@@ -42,7 +42,8 @@ class MealItem extends StatelessWidget {
                 padding: const EdgeInsets.all(10)),
             child: Text(
               'Substituições',
-              style: context.textTheme.labelLarge?.copyWith(color: context.colorScheme.primary),
+              style: context.textTheme.labelLarge
+                  ?.copyWith(color: context.colorScheme.primary),
             ),
           ),
         ),
